@@ -36,10 +36,10 @@ const Dashboard = () => {
       </div>
       */
       }
-      <h1 className="uppercase text-center bg-green-100">
+      <h1 className="uppercase text-center font-medium text-red-600">
         Employee Management System
       </h1>
-      <div className="bg-teal-100 w-1/6 h-full mt-2">
+      <div className="bg-zinc-300 w-1/6 h-full mt-2 rounded-xl">
         <img
           className="rounded-2xl cursor-pointer"
           src="https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
@@ -56,14 +56,20 @@ const Dashboard = () => {
             type="button"
             className="bg-transparent hover:bg-blue-500 text-blue-700 font-semi-bold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           >
-            Category
+            Employee Database
+          </button>
+          <button
+            type="button"
+            className="bg-transparent hover:bg-blue-500 text-blue-700 font-semi-bold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+          >
+            Attendance and leave management
           </button>
 
           <button
             type="button"
             className="bg-transparent hover:bg-blue-500 text-blue-700 font-semi-bold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
           >
-            Invoices
+            Payroll Information
           </button>
         </div>
 
