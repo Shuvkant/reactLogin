@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import { adminRouter } from "./Routes/adminRoute.js";
+import connectDB from "./db/database.js";
+import adminModel from "./models/adminModel.js";
 
 const app = express();
 app.use(cors({
@@ -14,7 +16,9 @@ app.use(express.json());
 //res.send("Hello shuvkant");
 //});
 
-app.use("/auth", adminRouter);
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+connectDB().then(() => {
+  app.use("/auth", adminRouter);
+  app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
+  });
 });
