@@ -1,8 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const handleLogout = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:3000/auth/logout", { withCredentials: true })
+      .then((response) => {
+        console.log(response.data.message);
+        // Perform any other logout actions (e.g., redirect to login page)
+        navigate("/");
+      })
+      .catch((error) => {
+        console.error("Error logging out:", error);
+      });
+  };
+
   return (
     <>
       {
@@ -42,10 +57,9 @@ const Dashboard = () => {
       <div className="bg-zinc-300 w-1/6 h-full mt-2 rounded-xl">
         <img
           className="rounded-2xl cursor-pointer"
-          src="https://images.pexels.com/photos/544295/pexels-photo-544295.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt=""
         />
-        <div className="flex flex-col py-3 px-5  space-y-[2px]">
+        <div className="flex flex-col py-3 px-2  space-y-[2px]">
           <button
             type="button"
             className="bg-transparent hover:bg-blue-500 text-blue-700 font-semi-bold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
@@ -75,8 +89,9 @@ const Dashboard = () => {
 
         <div className=" py-2 items-center flex flex-col">
           <button
-            type="button"
+            type="submit"
             className="bg-transparent hover:bg-blue-500 text-blue-700 font-semi-bold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+            onClick={handleLogout}
           >
             Sign Out
           </button>
@@ -87,4 +102,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-

@@ -3,6 +3,8 @@ import cors from "cors";
 import { adminRouter } from "./Routes/adminRoute.js";
 import connectDB from "./db/database.js";
 import adminModel from "./models/adminModel.js";
+import cookieParser from "cookie-parser";
+import jwt from "jsonwebtoken";
 
 const app = express();
 app.use(cors({
@@ -12,10 +14,19 @@ app.use(cors({
 }));
 const port = 3000;
 app.use(express.json());
+app.use(cookieParser());
 //app.get("/", (req, res) => {
 //res.send("Hello shuvkant");
 //});
-
+{
+  /*
+app.get("/shuvkant", (req, res) => {
+  res.send(
+    "Learning web development",
+  );
+});
+  */
+}
 connectDB().then(() => {
   app.use("/auth", adminRouter);
   app.listen(port, () => {
