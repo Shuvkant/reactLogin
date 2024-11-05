@@ -8,9 +8,11 @@ export default function Login() {
   });
   const navigate = useNavigate();
   const [error, setError] = useState(null);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     try {
+      axios.defaults.withCredentials = true;
       axios.post("http://localhost:3000/auth/login", values).then((result) => {
         if (result.data.loginStatus) {
           navigate("/dashboard");
