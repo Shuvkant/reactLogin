@@ -8,6 +8,13 @@ const JWT_SECRET = "shuvkant";
 
 // Middleware for parsing cookies
 router.use(cookieParser());
+//Employee Database
+router.post("/employeedata", async (req, res) => {
+  try {
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 // Login Route
 router.post("/login", async (req, res) => {
