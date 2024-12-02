@@ -8,13 +8,13 @@ import jwt from "jsonwebtoken";
 
 const app = express();
 app.use(
-  cors(),
-);
-/*
+  cors({
     origin: ["http://localhost:5173"],
     methods: ["GET", "POST", "DELETE", "PUT"],
     credentials: true,
-  */
+  }),
+);
+
 const port = 3000;
 app.use(express.json());
 app.use(cookieParser());
